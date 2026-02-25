@@ -1,44 +1,45 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-  <meta charset="UTF-8" />
-  <link rel="shortcut icon" href="/img/favicon.ico" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <title>Инструкция</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Инструкция по работе с онлайн-планировщиком дома 3D: обзор, стены, окна, двери, этажи, крыша.">
+  <meta name="theme-color" content="#2c5282">
+  <link rel="icon" href="/img/favicon.ico" type="image/x-icon">
+  <title>Инструкция — Инженерный план</title>
   <style>body { overflow: auto }</style>
 </head>
 <body>
-  <div class="fon" data-wrap-v></div>
+  <div class="fon" data-wrap-v aria-hidden="true"></div>
 
   <div class="wrap">
-    <div class="content">
-      <div class="line_0"></div>
-      <div id="menu-container"></div>
+    <main class="content">
+      <div class="line_0" aria-hidden="true"></div>
+      <nav id="menu-container" aria-label="Основная навигация"></nav>
 
-      <div class="block_line_1">
-        <div class="offset_top_50"></div>
-        <div class="t1">Инструкция</div>
-        <div class="offset_top_30"></div>
+      <header class="block_line_1">
+        <div class="offset_top_50" aria-hidden="true"></div>
+        <h1 class="t1">Инструкция</h1>
+        <div class="offset_top_30" aria-hidden="true"></div>
 
-        <div class="docum">
-          <div class="docum_a" data-lesson="1">1. Обзор программы</div><br>
-          <div class="docum_a" data-lesson="2">2. Построение стен</div><br>
-          <div class="docum_a" data-lesson="3">3. Окна двери</div><br>
-          <div class="docum_a" data-lesson="4">4. Добавление этажей</div><br>
-          <div class="docum_a" data-lesson="5">5. Крыша</div><br>
+        <nav class="docum" aria-label="Содержание инструкции">
+          <ol class="docum-list">
+            <li><button type="button" class="docum_a" data-lesson="1">1. Обзор программы</button></li>
+            <li><button type="button" class="docum_a" data-lesson="2">2. Построение стен</button></li>
+            <li><button type="button" class="docum_a" data-lesson="3">3. Окна двери</button></li>
+            <li><button type="button" class="docum_a" data-lesson="4">4. Добавление этажей</button></li>
+            <li><button type="button" class="docum_a" data-lesson="5">5. Крыша</button></li>
+          </ol>
+        </nav>
+
+        <div class="docum_line" aria-hidden="true"></div>
+        <div class="docum_teh" style="display: none;" role="note">
+          <p><strong>Техническая поддержка:</strong><br>
+          Если есть вопросы по работе с программой, пишите на почту <a href="mailto:engineering-plan@mail.ru">engineering-plan@mail.ru</a></p>
         </div>
-
-        <div class="docum_line"></div>
-        <div class="docum_teh" style="display: none;">
-          <b>Техническая поддержка:</b><br>
-          Если есть вопросы по работе с программой, пишите на почту <b>engineering-plan@mail.ru</b>
-        </div>
-      </div>
-      <div class="offset_top_30"></div>
-    </div>
+      </header>
+      <div class="offset_top_30" aria-hidden="true"></div>
+    </main>
   </div>
 
   <footer>

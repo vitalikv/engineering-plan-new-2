@@ -1,40 +1,41 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-  <meta charset="UTF-8" />
-  <link rel="shortcut icon" href="/img/favicon.ico" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <title>Обратная связь</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Обратная связь — свяжитесь с нами по вопросам работы онлайн-планировщика дома.">
+  <meta name="theme-color" content="#2c5282">
+  <link rel="icon" href="/img/favicon.ico" type="image/x-icon">
+  <title>Обратная связь — Инженерный план</title>
 </head>
 <body>
   <div class="wrap">
-    <div class="content">
-      <div class="line_0"></div>
-      <div id="menu-container"></div>
+    <main class="content">
+      <div class="line_0" aria-hidden="true"></div>
+      <nav id="menu-container" aria-label="Основная навигация"></nav>
 
       <div class="container">
-        <div class="offset_top_50"></div>
+        <div class="offset_top_50" aria-hidden="true"></div>
 
-        <div data-forma>
+        <form data-forma novalidate>
           <div class="vrm">
-            <input data-mess-name class="mess_inp" type="text" placeholder="Имя">
+            <label for="mess-name" class="visually-hidden">Имя</label>
+            <input id="mess-name" data-mess-name class="mess_inp" type="text" placeholder="Имя" autocomplete="name" maxlength="100">
           </div>
           <div class="vrm">
-            <input data-mess-mail class="mess_inp" type="email" placeholder="Почта">
+            <label for="mess-mail" class="visually-hidden">Почта</label>
+            <input id="mess-mail" data-mess-mail class="mess_inp" type="email" placeholder="Почта" autocomplete="email" maxlength="100">
           </div>
           <div class="vrm">
-            <div data-mess-text class="mess_text" contenteditable="true" spellcheck="false">Сообщение</div>
+            <div data-mess-text class="mess_text" contenteditable="true" spellcheck="false" role="textbox" aria-label="Сообщение" tabindex="0">Сообщение</div>
           </div>
-          <div class="butt_enter" data-btn-mess>ОТПРАВИТЬ</div>
-          <div class="mess_inf" data-inf></div>
-        </div>
+          <button type="button" class="butt_enter" data-btn-mess>ОТПРАВИТЬ</button>
+          <div class="mess_inf" data-inf role="status" aria-live="polite"></div>
+        </form>
 
-        <div class="offset_top_50"></div>
+        <div class="offset_top_50" aria-hidden="true"></div>
       </div>
-    </div>
+    </main>
   </div>
 
   <footer>

@@ -24,7 +24,7 @@ function showLesson(id: string): void {
 
   wrapV.innerHTML = `
     <div class="img_big_2" data-wrap-c>
-      <iframe width="100%" height="100%" src="${video}" frameborder="0" allowfullscreen></iframe>
+      <iframe width="100%" height="100%" src="${video}" allow="fullscreen" allowfullscreen style="border: none;"></iframe>
     </div>`;
   (wrapV as HTMLElement).style.display = 'block';
 
