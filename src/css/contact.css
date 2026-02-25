@@ -13,7 +13,7 @@
 }
 .form-field:focus-within {
   border-color: var(--color-accent);
-  box-shadow: 0 0 0 3px rgba(44, 82, 130, 0.12);
+  box-shadow: 0 0 0 3px rgba(68, 136, 255, 0.15);
 }
 
 .form-input {
