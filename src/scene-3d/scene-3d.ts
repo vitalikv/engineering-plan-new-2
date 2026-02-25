@@ -41,6 +41,9 @@ renderer.setPixelRatio(window.devicePixelRatio);
 
 container.appendChild(renderer.domElement);
 
+const fallback = container.querySelector('.scene-3d-fallback');
+if (fallback) fallback.remove();
+
 const scene = new THREE.Scene();
 scene.background = new THREE.Color(0xffffff);
 
