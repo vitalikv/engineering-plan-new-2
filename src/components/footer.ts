@@ -5,6 +5,5 @@ export function renderFooter(container: HTMLElement): void {
     <a href="/documentation">Инструкция</a>
     <a href="/contact">Задать вопрос</a>
   </div>
-  <div class="clearfix"></div>
 </div>`;
 }

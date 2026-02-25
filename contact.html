@@ -18,7 +18,7 @@
       <nav id="menu-container" aria-label="Основная навигация"></nav>
 
       <div class="container">
-        <div class="spacer-md" aria-hidden="true"></div>
+        <h1 class="page-title">Обратная связь</h1>
 
         <form data-forma novalidate>
           <div class="form-field">
@@ -30,13 +30,12 @@
             <input id="mess-mail" data-mess-mail class="form-input" type="email" placeholder="Почта" autocomplete="email" maxlength="100">
           </div>
           <div class="form-field">
-            <div data-mess-text class="form-textarea" contenteditable="true" spellcheck="false" role="textbox" aria-label="Сообщение" tabindex="0">Сообщение</div>
+            <label for="mess-text" class="visually-hidden">Сообщение</label>
+            <textarea id="mess-text" data-mess-text class="form-textarea" placeholder="Сообщение" spellcheck="false" maxlength="2000"></textarea>
           </div>
           <button type="button" class="form-submit" data-btn-mess>ОТПРАВИТЬ</button>
           <div class="form-feedback" data-inf role="status" aria-live="polite"></div>
         </form>
-
-        <div class="spacer-md" aria-hidden="true"></div>
       </div>
     </main>
   </div>

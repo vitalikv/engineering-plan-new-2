@@ -9,7 +9,6 @@ export function renderMenu(container: HTMLElement): void {
     <div class="nav-bar__group--right">
       <a href="/contact" class="nav-bar__link--cta">Задать вопрос</a>
     </div>
-    <div class="clearfix"></div>
   </div>
   <div class="nav-divider"></div>
 </div>`;

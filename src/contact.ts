@@ -1,30 +1,19 @@
 import { renderMenu } from './components/menu';
 import { renderFooter } from './components/footer';
 
-const PLACEHOLDER = 'Сообщение';
-
 const menuContainer = document.getElementById('menu-container');
 const footerContainer = document.getElementById('footer-container');
 const fieldName = document.querySelector<HTMLInputElement>('[data-mess-name]');
 const fieldMail = document.querySelector<HTMLInputElement>('[data-mess-mail]');
-const fieldText = document.querySelector<HTMLDivElement>('[data-mess-text]');
+const fieldText = document.querySelector<HTMLTextAreaElement>('[data-mess-text]');
 const btnMess = document.querySelector<HTMLElement>('[data-btn-mess]');
 const elInf = document.querySelector<HTMLElement>('[data-inf]');
 
 if (menuContainer) renderMenu(menuContainer);
 if (footerContainer) renderFooter(footerContainer);
 
-if (fieldText) {
-  fieldText.addEventListener('focusin', () => {
-    if (fieldText.innerHTML.trim() === PLACEHOLDER) {
-      fieldText.innerHTML = '';
-    }
-  });
-  fieldText.addEventListener('focusout', () => {
-    if (fieldText.innerHTML.trim() === '') {
-      fieldText.innerHTML = PLACEHOLDER;
-    }
-  });
+function isValidEmail(email: string): boolean {
+  return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
 }
 
 function sendMess(): void {
@@ -32,19 +21,27 @@ function sendMess(): void {
 
   const name = fieldName.value.trim();
   const mail = fieldMail.value.trim();
+  const text = fieldText.value.trim();
 
-  let answer = '';
-  if (name === '') answer += 'Укажите имя';
-  if (mail === '') answer += answer === '' ? ' Укажите почту' : ' и почту';
+  const errors: string[] = [];
+  if (name === '') errors.push('Укажите имя');
+  if (mail === '') {
+    errors.push('Укажите почту');
+  } else if (!isValidEmail(mail)) {
+    errors.push('Неверный формат почты');
+  }
+  if (text === '') errors.push('Введите сообщение');
 
-  if (answer === '') {
-    answer = 'Сообщение отправлено';
-    fieldName.value = '';
-    fieldMail.value = '';
-    fieldText.innerHTML = '';
+  if (errors.length > 0) {
+    elInf.textContent = errors.join('. ');
+    return;
   }
 
-  elInf.innerHTML = answer.trim();
+  // TODO: добавить fetch() для отправки данных на сервер
+  elInf.textContent = 'Сообщение отправлено';
+  fieldName.value = '';
+  fieldMail.value = '';
+  fieldText.value = '';
 }
 
-btnMess?.addEventListener('mousedown', () => sendMess());
+btnMess?.addEventListener('click', () => sendMess());

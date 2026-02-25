@@ -21,14 +21,7 @@ document.addEventListener('click', (e) => {
     const src = (clickImg as HTMLImageElement).src;
     if (src && fonEl) {
       fonEl.innerHTML = `<img src="${src}" class="modal-media" alt="увеличенное">`;
-      (fonEl as HTMLElement).style.display = 'block';
-      const imgEl = fonEl.querySelector('.modal-media') as HTMLImageElement;
-      imgEl?.addEventListener('load', () => {
-        const hOkno = window.innerHeight;
-        const hHtml = imgEl.height;
-        const hResul = (hOkno - hHtml) / 2;
-        imgEl.style.marginTop = `${hResul}px`;
-      });
+      (fonEl as HTMLElement).style.display = 'flex';
       document.body.style.overflow = 'hidden';
     }
     e.stopPropagation();

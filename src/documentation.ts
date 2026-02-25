@@ -21,18 +21,10 @@ function showLesson(id: string): void {
   if (!video || !wrapV) return;
 
   wrapV.innerHTML = `
-    <div class="modal-media" data-wrap-c>
-      <iframe width="100%" height="100%" src="${video}" allow="fullscreen" allowfullscreen style="border: none;"></iframe>
+    <div class="modal-video">
+      <iframe src="${video}" allow="fullscreen" allowfullscreen></iframe>
     </div>`;
-  (wrapV as HTMLElement).style.display = 'block';
-
-  const ratio = window.innerWidth * 0.7;
-  const wrapC = wrapV.querySelector('[data-wrap-c]') as HTMLElement;
-  if (wrapC) {
-    wrapC.style.width = ratio + 'px';
-    wrapC.style.height = ratio / 1.6666 + 'px';
-    wrapC.style.marginTop = (window.innerHeight - ratio / 1.6666) / 2 + 'px';
-  }
+  (wrapV as HTMLElement).style.display = 'flex';
 }
 
 function hideLesson(): void {
@@ -43,14 +35,14 @@ function hideLesson(): void {
 }
 
 document.querySelectorAll('[data-lesson]').forEach((el) => {
-  el.addEventListener('mousedown', (e) => {
+  el.addEventListener('click', (e) => {
     e.preventDefault();
     const id = (el as HTMLElement).getAttribute('data-lesson');
     if (id) showLesson(id);
   });
 });
 
-wrapV?.addEventListener('mousedown', (e) => {
+wrapV?.addEventListener('click', (e) => {
   if (e.target === wrapV) {
     hideLesson();
   }
