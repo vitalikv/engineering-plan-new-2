@@ -31,20 +31,20 @@ body:before { content: ""; position: fixed; top: 0; left: 0; width: 100%; height
 .content { margin: 0 auto; flex: 1; width: 100%; }
 
 /* === Layout blocks === */
-.block_line_1 { max-width: 1200px; min-width: 320px; margin: 0 auto; padding: 0 24px; }
+.section-container { max-width: 1200px; min-width: 320px; margin: 0 auto; padding: 0 24px; }
 
-.t1 { font-size: 28px; font-weight: 600; color: var(--color-text); letter-spacing: -0.02em; }
+.page-title { font-size: 28px; font-weight: 600; color: var(--color-text); letter-spacing: -0.02em; }
 
 /* === Navigation === */
-.float_left { float: left; margin-left: 1px; }
-.float_right { float: right; margin-right: 1px; }
-.head_menu { height: 100%; margin: 40px auto 32px; }
-.head_menu a { font-size: 15px; font-weight: 500; color: var(--color-text); padding-right: 28px; text-decoration: none; transition: color 0.2s; }
-.head_menu a:hover { color: var(--color-accent); }
-.head_menu a.hm_2 { padding-right: 0; }
+.nav-bar__group--left { float: left; margin-left: 1px; }
+.nav-bar__group--right { float: right; margin-right: 1px; }
+.nav-bar { height: 100%; margin: 40px auto 32px; }
+.nav-bar a { font-size: 15px; font-weight: 500; color: var(--color-text); padding-right: 28px; text-decoration: none; transition: color 0.2s; }
+.nav-bar a:hover { color: var(--color-accent); }
+.nav-bar a.nav-bar__link--cta { padding-right: 0; }
 
-.line_0 { height: 1px; margin-top: -1px; }
-.line_1 { height: 2px; margin: 0 auto; background: var(--color-accent); border-radius: 1px; max-width: 1200px; }
+.layout-spacer { height: 1px; margin-top: -1px; }
+.nav-divider { height: 2px; margin: 0 auto; background: var(--color-accent); border-radius: 1px; max-width: 1200px; }
 
 /* === Hero section === */
 .hero-grid {
@@ -69,7 +69,7 @@ body:before { content: ""; position: fixed; top: 0; left: 0; width: 100%; height
   max-width: 400px;
 }
 
-.inb_1 {
+.hero-card {
   width: 100%;
   border-radius: var(--radius);
   border: 1px solid var(--color-border);
@@ -79,20 +79,20 @@ body:before { content: ""; position: fixed; top: 0; left: 0; width: 100%; height
   display: flex;
   flex-direction: column;
 }
-.inb_1_content { padding: 28px; width: 100%; box-sizing: border-box; }
+.hero-card__content { padding: 28px; width: 100%; box-sizing: border-box; }
 .hero-title { font-size: 22px; font-weight: 600; color: var(--color-text); margin: 0 0 1em; }
 .section-subtitle { font-size: 16px; font-weight: 600; color: var(--color-text); margin: 1.25em 0 0.5em; }
 .section-subtitle:first-of-type { margin-top: 0; }
 .hero-list { padding-left: 20px; margin: 0 0 0.5em; list-style-type: disc; }
 .hero-list li { margin-bottom: 0.4em; color: var(--color-text-muted); line-height: 1.5; }
-.inb_1 .btn-primary { align-self: center; margin: 0 0 24px; }
+.hero-card .btn-primary { align-self: center; margin: 0 0 24px; }
 
 /* === Buttons === */
 .btn { display: inline-flex; justify-content: center; align-items: center; padding: 14px 28px; font-family: var(--font-main); font-size: 16px; font-weight: 600; text-decoration: none; cursor: pointer; border: none; border-radius: var(--radius); transition: background 0.2s, transform 0.1s; }
 .btn:active { transform: scale(0.98); }
 .btn-primary { background: var(--color-accent); color: #fff; margin: 0 auto 24px; }
 .btn-primary:hover { background: var(--color-accent-hover); }
-.btn-calc { margin: 40px auto 0; }
+.btn--calc { margin: 40px auto 0; }
 
 /* === Projects section === */
 .projects-section {
@@ -165,7 +165,7 @@ body:before { content: ""; position: fixed; top: 0; left: 0; width: 100%; height
   justify-content: center;
 }
 
-.ind_bl_2 {
+.gallery-image {
   background-color: var(--color-bg-card);
   border-radius: var(--radius);
   border: 1px solid var(--color-border);
@@ -176,24 +176,24 @@ body:before { content: ""; position: fixed; top: 0; left: 0; width: 100%; height
   transition: box-shadow 0.2s, border-color 0.2s;
 }
 
-.ind_bl_2_wide { grid-column: 1 / -1; width: 100%; height: 100%; object-fit: cover; justify-self: stretch; }
+.gallery-image--wide { grid-column: 1 / -1; width: 100%; height: 100%; object-fit: cover; justify-self: stretch; }
 
-.ind_bl_2:hover {
+.gallery-image:hover {
   border-color: var(--color-accent);
   box-shadow: var(--shadow-md);
   z-index: 10;
 }
 
-/* === Calc section === */
-.calc-section { display: flex; flex-wrap: wrap; gap: 48px; max-width: 1200px; min-width: 320px; margin: 60px auto; padding: 0 24px; }
-.calc-content { flex: 1; min-width: 300px; }
-.calc-section-inner { max-width: 560px; }
-.calc-title { font-size: 22px; font-weight: 600; color: var(--color-text); margin-bottom: 20px; }
-.calc-text { line-height: 1.7; color: var(--color-text-muted); margin: 0 0 1em; }
-.calc-list { list-style: none; padding-left: 0; margin: 0 0 1em; font-size: 15px; line-height: 1.7; color: var(--color-text-muted); }
-.calc-list li { position: relative; padding-left: 24px; margin-bottom: 0.5em; }
-.calc-list li::before { content: "—"; position: absolute; left: 0; color: var(--color-accent); font-weight: 600; }
-.calc-gallery {
+/* === Calculator section === */
+.calculator-section { display: flex; flex-wrap: wrap; gap: 48px; max-width: 1200px; min-width: 320px; margin: 60px auto; padding: 0 24px; }
+.calculator-section__content { flex: 1; min-width: 300px; }
+.calculator-section__body { max-width: 560px; }
+.calculator-section__title { font-size: 22px; font-weight: 600; color: var(--color-text); margin-bottom: 20px; }
+.calculator-section__text { line-height: 1.7; color: var(--color-text-muted); margin: 0 0 1em; }
+.calculator-section__list { list-style: none; padding-left: 0; margin: 0 0 1em; font-size: 15px; line-height: 1.7; color: var(--color-text-muted); }
+.calculator-section__list li { position: relative; padding-left: 24px; margin-bottom: 0.5em; }
+.calculator-section__list li::before { content: "—"; position: absolute; left: 0; color: var(--color-accent); font-weight: 600; }
+.calculator-section__gallery {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 12px;
@@ -204,16 +204,16 @@ body:before { content: ""; position: fixed; top: 0; left: 0; width: 100%; height
 }
 
 /* === Modal / Lightbox === */
-.img_big_2 { display: block; max-width: 90%; max-height: 90%; margin: 20px auto; border-radius: var(--radius); box-shadow: var(--shadow-md); padding: 8px; background: var(--color-bg-card); border: 1px solid var(--color-border); }
-.fon { display: none; position: fixed; left: 0; top: 0; width: 100%; height: 100%; z-index: 110; background: rgba(45, 55, 72, 0.6); backdrop-filter: blur(4px); }
+.modal-media { display: block; max-width: 90%; max-height: 90%; margin: 20px auto; border-radius: var(--radius); box-shadow: var(--shadow-md); padding: 8px; background: var(--color-bg-card); border: 1px solid var(--color-border); }
+.overlay { display: none; position: fixed; left: 0; top: 0; width: 100%; height: 100%; z-index: 110; background: rgba(45, 55, 72, 0.6); backdrop-filter: blur(4px); }
 
 /* === Documentation === */
-.docum-list { list-style: none; padding: 0; margin: 0; }
-.docum-list li { margin-bottom: 8px; }
-.docum_a { display: inline-block; margin: 0; padding: 0; font: inherit; color: inherit; background: none; border: none; font-size: 18px; font-weight: 500; color: var(--color-text); transition: color 0.2s; cursor: pointer; }
-.docum_a:hover { color: var(--color-accent); }
-.docum_line { max-width: 1200px; height: 2px; margin: 16px auto; background: var(--color-accent); border-radius: 1px; }
-.docum_teh { margin: 30px auto; font-size: 15px; text-align: center; color: var(--color-text-muted); }
+.doc-nav__list { list-style: none; padding: 0; margin: 0; }
+.doc-nav__list li { margin-bottom: 8px; }
+.doc-nav__link { display: inline-block; margin: 0; padding: 0; font: inherit; color: inherit; background: none; border: none; font-size: 18px; font-weight: 500; color: var(--color-text); transition: color 0.2s; cursor: pointer; }
+.doc-nav__link:hover { color: var(--color-accent); }
+.doc-nav__divider { max-width: 1200px; height: 2px; margin: 16px auto; background: var(--color-accent); border-radius: 1px; }
+.doc-nav__note { margin: 30px auto; font-size: 15px; text-align: center; color: var(--color-text-muted); }
 
 /* === Footer === */
 .content { padding-bottom: 40px; }
@@ -222,18 +222,18 @@ footer p { font-size: 13px; padding: 24px 24px 8px; color: rgba(255,255,255,0.7)
 footer a { color: rgba(255,255,255,0.9); transition: color 0.2s; }
 footer a:hover { color: #fff; }
 
-.footer_menu { display: inline-block; float: right; margin: 32px 24px 0 0; }
-.footer_menu a { font-size: 14px; font-weight: 500; color: rgba(255,255,255,0.9); padding: 0 16px; text-decoration: none; }
-.footer_menu a:hover { color: #fff; text-decoration: none; }
+.footer-nav { display: inline-block; float: right; margin: 32px 24px 0 0; }
+.footer-nav a { font-size: 14px; font-weight: 500; color: rgba(255,255,255,0.9); padding: 0 16px; text-decoration: none; }
+.footer-nav a:hover { color: #fff; text-decoration: none; }
 
 /* === Utilities === */
-.clear { clear: both; margin: 0; height: 0; }
-.offset_top_30 { height: 30px; }
-.offset_top_50 { height: 50px; }
+.clearfix { clear: both; margin: 0; height: 0; }
+.spacer-sm { height: 30px; }
+.spacer-md { height: 50px; }
 
 /* === Responsive === */
 @media screen and (max-width: 1000px) {
-  .block_line_1 { padding: 0 20px; }
+  .section-container { padding: 0 20px; }
   .hero-grid {
     grid-template-columns: 1fr;
     align-items: stretch;
@@ -246,14 +246,14 @@ footer a:hover { color: #fff; }
 }
 
 @media screen and (max-width: 768px) {
-  .t1 { font-size: 24px; }
+  .page-title { font-size: 24px; }
   .projects-section { padding: 32px 16px 40px; }
   .projects-grid { grid-template-columns: repeat(2, 1fr); gap: 16px; }
-  .calc-section { flex-direction: column; align-items: center; }
-  .calc-gallery { max-width: 400px; grid-auto-rows: 160px; }
+  .calculator-section { flex-direction: column; align-items: center; }
+  .calculator-section__gallery { max-width: 400px; grid-auto-rows: 160px; }
 }
 
 @media screen and (max-width: 600px) {
-  .head_menu { margin: 24px auto 24px; }
-  .head_menu a { font-size: 14px; padding-right: 16px; }
+  .nav-bar { margin: 24px auto 24px; }
+  .nav-bar a { font-size: 14px; padding-right: 16px; }
 }

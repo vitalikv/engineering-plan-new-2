@@ -6,27 +6,29 @@
   <meta name="description" content="Строительная программа 3D онлайн — планировщик дома, расчёт блоков. Рисуйте план, смотрите в 3D, выбирайте материалы.">
   <meta name="theme-color" content="#2c5282">
   <link rel="icon" href="/img/favicon.ico" type="image/x-icon">
+  <link rel="stylesheet" href="/src/css/reset.css">
+  <link rel="stylesheet" href="/src/css/style.css">
   <title>Инженерный план — 3D планировщик дома онлайн</title>
 </head>
 <body>
-  <div class="fon" data-fon aria-hidden="true"></div>
+  <div class="overlay" data-fon aria-hidden="true"></div>
 
   <div class="wrap">
     <main class="content">
-      <div class="line_0" aria-hidden="true"></div>
+      <div class="layout-spacer" aria-hidden="true"></div>
       <nav id="menu-container" aria-label="Основная навигация"></nav>
 
-      <header class="block_line_1">
-        <div class="offset_top_50" aria-hidden="true"></div>
-        <h1 class="t1">Строительная программа 3D онлайн</h1>
-        <div class="offset_top_30" aria-hidden="true"></div>
+      <header class="section-container">
+        <div class="spacer-md" aria-hidden="true"></div>
+        <h1 class="page-title">Строительная программа 3D онлайн</h1>
+        <div class="spacer-sm" aria-hidden="true"></div>
 
         <div class="hero-grid">
           <section id="scene-3d" class="scene-3d-wrap" aria-label="3D визуализация"></section>
 
           <aside class="hero-sidebar">
-            <div class="inb_1">
-              <div class="inb_1_content">
+            <div class="hero-card">
+              <div class="hero-card__content">
                 <h2 class="hero-title">Онлайн-планировщик дома 3D</h2>
                 <h3 class="section-subtitle">Для кого:</h3>
                 <ul class="hero-list">
@@ -51,7 +53,7 @@
         </div>
       </header>
 
-      <div class="offset_top_50" aria-hidden="true"></div>
+      <div class="spacer-md" aria-hidden="true"></div>
 
       <section class="projects-section" aria-labelledby="projects-heading">
         <div class="projects-section-inner">
@@ -91,19 +93,19 @@
         </div>
       </section>
 
-      <div class="offset_top_50" aria-hidden="true"></div>
+      <div class="spacer-md" aria-hidden="true"></div>
 
-      <section class="calc-section" aria-labelledby="calc-heading">
-        <div class="calc-content">
-          <section class="calc-section-inner">
-            <h2 id="calc-heading" class="calc-title">Онлайн-калькулятор блоков</h2>
-            <p class="calc-text">
+      <section class="calculator-section" aria-labelledby="calc-heading">
+        <div class="calculator-section__content">
+          <section class="calculator-section__body">
+            <h2 id="calc-heading" class="calculator-section__title">Онлайн-калькулятор блоков</h2>
+            <p class="calculator-section__text">
               Рассчитайте точное количество строительных блоков для вашего проекта с учётом окон, дверей и других проёмов.
               Сервис учитывает не только стандартные блоки, но и обрезки, которые могут быть повторно использованы.
               Это позволяет значительно снизить количество отходов и сэкономить бюджет.
             </p>
             <h3 class="section-subtitle">Что вы получите:</h3>
-            <ul class="calc-list">
+            <ul class="calculator-section__list">
               <li>Общий объём необходимых блоков</li>
               <li>Количество целых блоков</li>
               <li>Использование обрезков вместо новых блоков</li>
@@ -111,19 +113,19 @@
               <li>Наглядные таблицы и диаграммы по каждому типу блока</li>
             </ul>
             <h3 class="section-subtitle">Для кого?</h3>
-            <p class="calc-text">
+            <p class="calculator-section__text">
               Сервис полезен как профессионалам — архитекторам, прорабам, бригадирам, так и частным застройщикам.
               Подходит для расчёта стен в жилых домах, хозпостройках и коммерческих объектах.
             </p>
           </section>
-          <a href="/calc-blocks" class="btn btn-primary btn-calc">Расчёт блоков</a>
+          <a href="/calc-blocks" class="btn btn-primary btn--calc">Расчёт блоков</a>
         </div>
-        <div class="calc-gallery">
-          <img src="/img/ind/blocks/1.jpg" class="ind_bl_2" data-click-img alt="Строительные блоки" width="200" height="150" loading="lazy">
-          <img src="/img/ind/blocks/2.jpg" class="ind_bl_2" data-click-img alt="Строительные блоки" width="200" height="150" loading="lazy">
-          <img src="/img/ind/blocks/3.jpg" class="ind_bl_2" data-click-img alt="Строительные блоки" width="200" height="150" loading="lazy">
-          <img src="/img/ind/blocks/4.jpg" class="ind_bl_2" data-click-img alt="Строительные блоки" width="200" height="150" loading="lazy">
-          <img src="/img/ind/blocks/5.jpg" class="ind_bl_2 ind_bl_2_wide" data-click-img alt="Строительные блоки" width="400" height="150" loading="lazy">
+        <div class="calculator-section__gallery">
+          <img src="/img/ind/blocks/1.jpg" class="gallery-image" data-click-img alt="Строительные блоки" width="200" height="150" loading="lazy">
+          <img src="/img/ind/blocks/2.jpg" class="gallery-image" data-click-img alt="Строительные блоки" width="200" height="150" loading="lazy">
+          <img src="/img/ind/blocks/3.jpg" class="gallery-image" data-click-img alt="Строительные блоки" width="200" height="150" loading="lazy">
+          <img src="/img/ind/blocks/4.jpg" class="gallery-image" data-click-img alt="Строительные блоки" width="200" height="150" loading="lazy">
+          <img src="/img/ind/blocks/5.jpg" class="gallery-image gallery-image--wide" data-click-img alt="Строительные блоки" width="400" height="150" loading="lazy">
         </div>
       </section>
     </main>

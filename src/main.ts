@@ -1,5 +1,3 @@
-import './css/reset.css';
-import './css/style.css';
 import { renderMenu } from './components/menu';
 import { renderFooter } from './components/footer';
 
@@ -22,9 +20,9 @@ document.addEventListener('click', (e) => {
   if (clickImg) {
     const src = (clickImg as HTMLImageElement).src;
     if (src && fonEl) {
-      fonEl.innerHTML = `<img src="${src}" class="img_big_2" alt="увеличенное">`;
+      fonEl.innerHTML = `<img src="${src}" class="modal-media" alt="увеличенное">`;
       (fonEl as HTMLElement).style.display = 'block';
-      const imgEl = fonEl.querySelector('.img_big_2') as HTMLImageElement;
+      const imgEl = fonEl.querySelector('.modal-media') as HTMLImageElement;
       imgEl?.addEventListener('load', () => {
         const hOkno = window.innerHeight;
         const hHtml = imgEl.height;
@@ -36,7 +34,7 @@ document.addEventListener('click', (e) => {
     e.stopPropagation();
     return;
   }
-  if (target.classList.contains('img_big_2')) {
+  if (target.classList.contains('modal-media')) {
     e.stopPropagation();
     return;
   }

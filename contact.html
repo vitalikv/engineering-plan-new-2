@@ -6,34 +6,37 @@
   <meta name="description" content="Обратная связь — свяжитесь с нами по вопросам работы онлайн-планировщика дома.">
   <meta name="theme-color" content="#2c5282">
   <link rel="icon" href="/img/favicon.ico" type="image/x-icon">
+  <link rel="stylesheet" href="/src/css/reset.css">
+  <link rel="stylesheet" href="/src/css/style.css">
+  <link rel="stylesheet" href="/src/css/contact.css">
   <title>Обратная связь — Инженерный план</title>
 </head>
 <body>
   <div class="wrap">
     <main class="content">
-      <div class="line_0" aria-hidden="true"></div>
+      <div class="layout-spacer" aria-hidden="true"></div>
       <nav id="menu-container" aria-label="Основная навигация"></nav>
 
       <div class="container">
-        <div class="offset_top_50" aria-hidden="true"></div>
+        <div class="spacer-md" aria-hidden="true"></div>
 
         <form data-forma novalidate>
-          <div class="vrm">
+          <div class="form-field">
             <label for="mess-name" class="visually-hidden">Имя</label>
-            <input id="mess-name" data-mess-name class="mess_inp" type="text" placeholder="Имя" autocomplete="name" maxlength="100">
+            <input id="mess-name" data-mess-name class="form-input" type="text" placeholder="Имя" autocomplete="name" maxlength="100">
           </div>
-          <div class="vrm">
+          <div class="form-field">
             <label for="mess-mail" class="visually-hidden">Почта</label>
-            <input id="mess-mail" data-mess-mail class="mess_inp" type="email" placeholder="Почта" autocomplete="email" maxlength="100">
+            <input id="mess-mail" data-mess-mail class="form-input" type="email" placeholder="Почта" autocomplete="email" maxlength="100">
           </div>
-          <div class="vrm">
-            <div data-mess-text class="mess_text" contenteditable="true" spellcheck="false" role="textbox" aria-label="Сообщение" tabindex="0">Сообщение</div>
+          <div class="form-field">
+            <div data-mess-text class="form-textarea" contenteditable="true" spellcheck="false" role="textbox" aria-label="Сообщение" tabindex="0">Сообщение</div>
           </div>
-          <button type="button" class="butt_enter" data-btn-mess>ОТПРАВИТЬ</button>
-          <div class="mess_inf" data-inf role="status" aria-live="polite"></div>
+          <button type="button" class="form-submit" data-btn-mess>ОТПРАВИТЬ</button>
+          <div class="form-feedback" data-inf role="status" aria-live="polite"></div>
         </form>
 
-        <div class="offset_top_50" aria-hidden="true"></div>
+        <div class="spacer-md" aria-hidden="true"></div>
       </div>
     </main>
   </div>

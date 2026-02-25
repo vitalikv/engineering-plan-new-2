@@ -1,16 +1,16 @@
 export function renderMenu(container: HTMLElement): void {
   container.innerHTML = `
-<div class="block_line_1">
-  <div class="head_menu">
-    <div class="float_left">
+<div class="section-container">
+  <div class="nav-bar">
+    <div class="nav-bar__group--left">
       <a href="/">Главная</a>
       <a href="/documentation">Инструкция</a>
     </div>
-    <div class="float_right">
-      <a href="/contact" class="hm_2">Задать вопрос</a>
+    <div class="nav-bar__group--right">
+      <a href="/contact" class="nav-bar__link--cta">Задать вопрос</a>
     </div>
-    <div class="clear"></div>
+    <div class="clearfix"></div>
   </div>
-  <div class="line_1"></div>
+  <div class="nav-divider"></div>
 </div>`;
 }

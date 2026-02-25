@@ -1,6 +1,3 @@
-import './css/reset.css';
-import './css/style.css';
-import './css/contact.css';
 import { renderMenu } from './components/menu';
 import { renderFooter } from './components/footer';
 

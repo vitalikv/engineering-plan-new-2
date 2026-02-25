@@ -1,5 +1,3 @@
-import './css/reset.css';
-import './css/style.css';
 import { renderMenu } from './components/menu';
 import { renderFooter } from './components/footer';
 
@@ -23,7 +21,7 @@ function showLesson(id: string): void {
   if (!video || !wrapV) return;
 
   wrapV.innerHTML = `
-    <div class="img_big_2" data-wrap-c>
+    <div class="modal-media" data-wrap-c>
       <iframe width="100%" height="100%" src="${video}" allow="fullscreen" allowfullscreen style="border: none;"></iframe>
     </div>`;
   (wrapV as HTMLElement).style.display = 'block';

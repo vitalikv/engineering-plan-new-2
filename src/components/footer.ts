@@ -1,10 +1,10 @@
 export function renderFooter(container: HTMLElement): void {
   container.innerHTML = `
-<div class="block_line_1">
-  <div class="footer_menu">
+<div class="section-container">
+  <div class="footer-nav">
     <a href="/documentation">Инструкция</a>
     <a href="/contact">Задать вопрос</a>
   </div>
-  <div class="clear"></div>
+  <div class="clearfix"></div>
 </div>`;
 }
