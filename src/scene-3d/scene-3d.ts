@@ -6,6 +6,15 @@ import type { Mesh, Intersection } from 'three';
 const container = document.getElementById('scene-3d');
 if (!container) throw new Error('#scene-3d not found');
 
+function getSize(): { w: number; h: number } {
+  const w = container!.clientWidth || 640;
+  const h = container!.clientHeight || 480;
+  return { w, h };
+}
+
+let w_w: number;
+let w_h: number;
+
 container.addEventListener('contextmenu', (e) => e.preventDefault());
 container.addEventListener('mousedown', onDocumentMouseDown, false);
 container.addEventListener('mousemove', onDocumentMouseMove, false);
@@ -14,8 +23,6 @@ container.addEventListener('touchstart', onDocumentMouseDown as EventListener, f
 container.addEventListener('touchmove', onDocumentMouseMove as EventListener, false);
 container.addEventListener('touchend', onDocumentMouseUp as EventListener, false);
 
-const w_w = container.clientWidth;
-const w_h = container.clientHeight;
 const d = 5;
 
 const canvas = document.createElement('canvas');
@@ -31,7 +38,7 @@ renderer.localClippingEnabled = true;
 renderer.shadowMap.enabled = true;
 renderer.shadowMap.type = THREE.PCFSoftShadowMap;
 renderer.setPixelRatio(window.devicePixelRatio);
-renderer.setSize(w_w, w_h);
+
 container.appendChild(renderer.domElement);
 
 const scene = new THREE.Scene();
@@ -54,11 +61,25 @@ light_2.shadow.camera.near = 0;
 light_2.shadow.camera.far = 3500;
 scene.add(light_2);
 
-const camera = new THREE.PerspectiveCamera(65, w_w / w_h, 0.2, 1000);
+const { w: initW, h: initH } = getSize();
+w_w = initW;
+w_h = initH;
+const camera = new THREE.PerspectiveCamera(65, w_w / w_h || 4 / 3, 0.2, 1000);
 (camera.rotation as THREE.Euler).order = 'YZX';
 camera.position.set(8, 6, 8);
 const centerCam = new THREE.Vector3(0, 2, -2);
 camera.lookAt(centerCam);
+
+function resize(): void {
+  const { w, h } = getSize();
+  w_w = w;
+  w_h = h;
+  renderer.setSize(w, h);
+  camera.aspect = w / h || 1;
+  camera.updateProjectionMatrix();
+}
+resize();
+new ResizeObserver(resize).observe(container);
 
 let theta = 45;
 const radius = 14;

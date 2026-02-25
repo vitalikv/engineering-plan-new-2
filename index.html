@@ -4,12 +4,15 @@
   <meta charset="UTF-8" />
   <link rel="shortcut icon" href="/img/favicon.ico" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
   <title>Инженерный план</title>
 </head>
 <body>
   <div class="fon" data-fon></div>
 
-  <div class="wrap" style="font-family: arial, sans-serif; color: #555; font-size: 16px;">
+  <div class="wrap">
     <div class="content">
       <div class="line_0"></div>
       <div id="menu-container"></div>
@@ -19,35 +22,33 @@
         <div class="t1">Строительная программа 3D онлайн</div>
         <div class="offset_top_30"></div>
 
-        <div style="display: flex;">
-          <div id="scene-3d" style="width: 60%; height: 480px; margin: auto auto auto 1px; border: 1px solid #ccc;"></div>
+        <div class="hero-grid">
+          <div id="scene-3d" class="scene-3d-wrap"></div>
 
-          <div style="width: 35%; margin: auto 1px auto auto;">
+          <div class="hero-sidebar">
             <div class="inb_1">
-              <div style="padding: 20px; max-width: 600px; margin: auto;">
-                <h2 style="margin-bottom: 1.2em; font-size: 24px; color: #333;">
+              <div class="inb_1_content">
+                <h2 class="hero-title">
                   Онлайн-планировщик дома 3D
                 </h2>
-                <h3 style="margin-top: 1.2em; margin-bottom: 0.5em; font-size: 20px;">🏡 Для кого:</h3>
-                <ul style="padding-left: 20px; list-style-type: disc;">
-                  <li style="margin-bottom: 0.4em;">Для тех, кто строит дом или планирует ремонт</li>
+                <h3 class="section-subtitle">Для кого:</h3>
+                <ul class="hero-list">
+                  <li>Для тех, кто строит дом или планирует ремонт</li>
                 </ul>
-                <h3 style="margin-top: 1.2em; margin-bottom: 0.5em; font-size: 20px;">🔍 Что можно делать:</h3>
-                <ul style="padding-left: 20px; list-style-type: disc;">
-                  <li style="margin-bottom: 0.4em;">Рисовать план дома</li>
-                  <li style="margin-bottom: 0.4em;">Смотреть проект в 3D в режиме реального времени</li>
-                  <li style="margin-bottom: 0.4em;">Выбирать материалы стен, пола, крыши</li>
-                  <li style="margin-bottom: 0.4em;">Расставлять окна, двери и мебель</li>
-                  <li style="margin-bottom: 0.4em;">Сохранять и дорабатывать проект</li>
+                <h3 class="section-subtitle">Что можно делать:</h3>
+                <ul class="hero-list">
+                  <li>Рисовать план дома</li>
+                  <li>Смотреть проект в 3D в режиме реального времени</li>
+                  <li>Выбирать материалы стен, пола, крыши</li>
+                  <li>Расставлять окна, двери и мебель</li>
+                  <li>Сохранять и дорабатывать проект</li>
                 </ul>
-                <h4 style="margin-top: 1.2em; margin-bottom: 0.5em; font-size: 20px;">🛠 Зачем нужно:</h4>
-                <ul style="padding-left: 20px; list-style-type: disc;">
-                  <li style="margin-bottom: 0.4em;">Чтобы наглядно представить будущий дом и избежать ошибок на стадии проектирования</li>
+                <h4 class="section-subtitle">Зачем нужно:</h4>
+                <ul class="hero-list">
+                  <li>Чтобы наглядно представить будущий дом и избежать ошибок на стадии проектирования</li>
                 </ul>
               </div>
-              <a href="/construction" style="display: flex; justify-content: center; align-items: center; width: 200px; height: 50px; margin: 0px auto 20px auto; border: solid 1px #b3b3b3; background: #76e199; cursor: pointer; text-decoration: none; box-shadow: 0 0 4px 0 rgba(0,0,0,0.5);">
-                <div style="font-size: 26px; text-align: center; color: #fff;">Начать</div>
-              </a>
+              <a href="/construction" class="btn btn-primary">Начать</a>
             </div>
           </div>
           <div class="clear"></div>
@@ -59,7 +60,7 @@
       <div class="block_line_2">
         <div class="block_line_1">
           <div class="offset_top_30"></div>
-          <div style="text-align: center; font-size: 24px;">Проекты:</div>
+          <div class="projects-title">Проекты</div>
           <div class="offset_top_30"></div>
           <div class="modal_body_content_grid">
             <a class="ind_bl_1" href="/construction?demo=1">
@@ -87,39 +88,37 @@
         </div>
       </div>
 
-      <div style="display: flex; max-width: 1600px; min-width: 800px; margin: 50px auto;">
-        <div style="margin-right: 160px;">
-          <section style="max-width: 800px; margin: auto;">
-            <h2 style="color: #333; font-size: 24px; margin-bottom: 20px;">🧮 Онлайн-калькулятор блоков</h2>
-            <p style="line-height: 1.6;">
+      <div class="calc-section">
+        <div class="calc-content">
+          <section class="calc-section-inner">
+            <h2 class="calc-title">Онлайн-калькулятор блоков</h2>
+            <p class="calc-text">
               Рассчитайте точное количество строительных блоков для вашего проекта с учетом окон, дверей и других проемов.
               Сервис учитывает не только стандартные блоки, но и обрезки, которые могут быть повторно использованы.
               Это позволяет значительно снизить количество отходов и сэкономить бюджет.
             </p>
-            <h3 style="font-size: 20px; margin-top: 30px; margin-bottom: 15px;">✅ Что вы получите:</h3>
-            <ul style="list-style: none; padding-left: 20px; font-size: 15px; line-height: 1.6;">
-              <li>✔️ Общий объем необходимых блоков</li>
-              <li>✔️ Количество целых блоков</li>
-              <li>✔️ Использование обрезков вместо новых блоков</li>
-              <li>✔️ Объем и количество оставшихся кусков</li>
-              <li>✔️ Наглядные таблицы и диаграммы по каждому типу блока</li>
+            <h3 class="section-subtitle">Что вы получите:</h3>
+            <ul class="calc-list">
+              <li>Общий объем необходимых блоков</li>
+              <li>Количество целых блоков</li>
+              <li>Использование обрезков вместо новых блоков</li>
+              <li>Объем и количество оставшихся кусков</li>
+              <li>Наглядные таблицы и диаграммы по каждому типу блока</li>
             </ul>
-            <h3 style="font-size: 20px; margin-top: 30px; margin-bottom: 15px;">🧩 Для кого?</h3>
-            <p style="line-height: 1.6;">
+            <h3 class="section-subtitle">Для кого?</h3>
+            <p class="calc-text">
               Сервис полезен как профессионалам — архитекторам, прорабам, бригадирам, так и частным застройщикам.
               Подходит для расчета стен в жилых домах, хозпостройках и коммерческих объектах.
             </p>
           </section>
-          <a href="/calc-blocks" style="display: flex; justify-content: center; align-items: center; width: 200px; height: 50px; margin: 50px auto 0px auto; border: solid 1px #b3b3b3; background: #76e199; cursor: pointer; text-decoration: none; box-shadow: 0 0 4px 0 rgba(0,0,0,0.5);">
-            <div style="font-size: 26px; text-align: center; font-family: arial, sans-serif; color: #fff;">Расчет блоков</div>
-          </a>
+          <a href="/calc-blocks" class="btn btn-primary btn-calc">Расчет блоков</a>
         </div>
-        <div style="width: 700px; display: grid; grid-template-columns: repeat(2, 1fr); grid-gap: 0; grid-auto-rows: 200px;">
-          <img src="/img/ind/blocks/1.jpg" class="ind_bl_2" data-click-img alt="блоки 1" style="width: 100%; height: 100%; border: solid 1px #b3b3b3; object-fit: cover;">
-          <img src="/img/ind/blocks/2.jpg" class="ind_bl_2" data-click-img alt="блоки 2" style="width: 100%; height: 100%; border: solid 1px #b3b3b3; object-fit: cover;">
-          <img src="/img/ind/blocks/3.jpg" class="ind_bl_2" data-click-img alt="блоки 3" style="width: 100%; height: 100%; border: solid 1px #b3b3b3; object-fit: cover;">
-          <img src="/img/ind/blocks/4.jpg" class="ind_bl_2" data-click-img alt="блоки 4" style="width: 100%; height: 100%; border: solid 1px #b3b3b3; object-fit: cover;">
-          <img src="/img/ind/blocks/5.jpg" class="ind_bl_2" data-click-img alt="блоки 5" style="width: 50%; height: 100%; border: solid 1px #b3b3b3; object-fit: cover; grid-column: 1 / -1; justify-self: center;">
+        <div class="calc-gallery">
+          <img src="/img/ind/blocks/1.jpg" class="ind_bl_2" data-click-img alt="блоки 1">
+          <img src="/img/ind/blocks/2.jpg" class="ind_bl_2" data-click-img alt="блоки 2">
+          <img src="/img/ind/blocks/3.jpg" class="ind_bl_2" data-click-img alt="блоки 3">
+          <img src="/img/ind/blocks/4.jpg" class="ind_bl_2" data-click-img alt="блоки 4">
+          <img src="/img/ind/blocks/5.jpg" class="ind_bl_2 ind_bl_2_wide" data-click-img alt="блоки 5">
         </div>
       </div>
     </div>

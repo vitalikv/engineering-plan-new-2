@@ -2,7 +2,6 @@ import './css/reset.css';
 import './css/style.css';
 import { renderMenu } from './components/menu';
 import { renderFooter } from './components/footer';
-import './scene-3d/scene-3d';
 
 const menuContainer = document.getElementById('menu-container');
 const footerContainer = document.getElementById('footer-container');
@@ -10,6 +9,12 @@ const fonEl = document.querySelector('[data-fon]');
 
 if (menuContainer) renderMenu(menuContainer);
 if (footerContainer) renderFooter(footerContainer);
+
+if (document.getElementById('scene-3d')) {
+  requestAnimationFrame(() => {
+    import('./scene-3d/scene-3d');
+  });
+}
 
 document.addEventListener('click', (e) => {
   const target = e.target as HTMLElement;
