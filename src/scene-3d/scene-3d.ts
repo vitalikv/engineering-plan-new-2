@@ -121,11 +121,11 @@ function createGrid(): void {
 
 createGrid();
 
-new MTLLoader().load('/js/house_2.mtl', (materials) => {
+new MTLLoader().load(`${import.meta.env.BASE_URL}js/house_2.mtl`, (materials) => {
   materials.preload();
   new OBJLoader()
     .setMaterials(materials)
-    .load('/js/house_2.obj', (object) => {
+    .load(`${import.meta.env.BASE_URL}js/house_2.obj`, (object) => {
       object.position.set(-7, 0, 4);
       scene.add(object);
     });

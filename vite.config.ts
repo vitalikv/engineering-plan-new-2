@@ -4,6 +4,7 @@ import { defineConfig } from 'vite'
 const domain = basename(process.cwd())
 
 export default defineConfig({
+  base: './',
   server: {
     proxy: {
       '/components': `http://${domain}`,
