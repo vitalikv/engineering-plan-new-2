@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <link rel="shortcut icon" href="/img/favicon.ico" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Обратная связь</title>
+</head>
+<body>
+  <div class="wrap">
+    <div class="content">
+      <div class="line_0"></div>
+      <div id="menu-container"></div>
+
+      <div class="container">
+        <div class="offset_top_50"></div>
+
+        <div data-forma>
+          <div class="vrm">
+            <input data-mess-name class="mess_inp" type="text" placeholder="Имя">
+          </div>
+          <div class="vrm">
+            <input data-mess-mail class="mess_inp" type="email" placeholder="Почта">
+          </div>
+          <div class="vrm">
+            <div data-mess-text class="mess_text" contenteditable="true" spellcheck="false">Сообщение</div>
+          </div>
+          <div class="butt_enter" data-btn-mess>ОТПРАВИТЬ</div>
+          <div class="mess_inf" data-inf></div>
+        </div>
+
+        <div class="offset_top_50"></div>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <div id="footer-container"></div>
+  </footer>
+
+  <script type="module" src="/src/contact.ts"></script>
+</body>
+</html>
