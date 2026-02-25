@@ -4,10 +4,10 @@ export function renderMenu(container: HTMLElement): void {
   <div class="head_menu">
     <div class="float_left">
       <a href="/">Главная</a>
-      <a href="/documentation.html">Инструкция</a>
+      <a href="/documentation">Инструкция</a>
     </div>
     <div class="float_right">
-      <a href="/contact.html" class="hm_2">Задать вопрос</a>
+      <a href="/contact" class="hm_2">Задать вопрос</a>
     </div>
     <div class="clear"></div>
   </div>

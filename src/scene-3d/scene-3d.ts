@@ -37,11 +37,11 @@ container.appendChild(renderer.domElement);
 const scene = new THREE.Scene();
 scene.background = new THREE.Color(0xffffff);
 
-const light_1 = new THREE.AmbientLight(0xffffff, 1.7);
+const light_1 = new THREE.AmbientLight(0xffffff, 4.7);
 scene.add(light_1);
 
-const light_2 = new THREE.DirectionalLight(0xcccccc, 1.3);
-light_2.position.set(0, 15, 0);
+const light_2 = new THREE.DirectionalLight(0xffffff, 6.3);
+light_2.position.set(0, 10, 0);
 light_2.lookAt(0, 0, 0);
 light_2.castShadow = true;
 light_2.shadow.mapSize.width = 2048;

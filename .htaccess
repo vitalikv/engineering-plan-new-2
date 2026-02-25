@@ -1,0 +1,10 @@
+AddDefaultCharset utf-8
+DirectoryIndex index.html
+Options -Indexes
+
+RewriteEngine On
+RewriteBase /
+
+# Убираем .html из URL — contact, documentation
+RewriteRule ^contact$ contact.html [L]
+RewriteRule ^documentation$ documentation.html [L]
