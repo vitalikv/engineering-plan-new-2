@@ -9,11 +9,11 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@fontsource/manrope": "^5.2.8",
-    "three": "latest"
+    "three": "^0.183.1"
   },
   "devDependencies": {
-    "@types/three": "latest",
+    "@types/node": "^25.3.0",
+    "@types/three": "^0.183.0",
     "typescript": "~5.7",
     "vite": "latest"
   }

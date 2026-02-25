@@ -47,3 +47,7 @@ wrapV?.addEventListener('click', (e) => {
     hideLesson();
   }
 });
+
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape') hideLesson();
+});

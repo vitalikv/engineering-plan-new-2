@@ -5,6 +5,9 @@ Options -Indexes
 RewriteEngine On
 RewriteBase /
 
+# Разрешить прямой доступ к PHP-обработчикам
+RewriteRule ^components/.*\.php$ - [L]
+
 # Убираем .html из URL — contact, documentation
 RewriteRule ^contact$ contact.html [L]
 RewriteRule ^documentation$ documentation.html [L]

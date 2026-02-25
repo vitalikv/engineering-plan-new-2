@@ -37,3 +37,11 @@ document.addEventListener('click', (e) => {
     document.body.style.overflow = 'auto';
   }
 });
+
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape' && fonEl) {
+    (fonEl as HTMLElement).style.display = 'none';
+    fonEl.innerHTML = '';
+    document.body.style.overflow = 'auto';
+  }
+});

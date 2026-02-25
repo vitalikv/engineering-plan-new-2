@@ -16,8 +16,11 @@ function isValidEmail(email: string): boolean {
   return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
 }
 
-function sendMess(): void {
-  if (!fieldName || !fieldMail || !fieldText || !elInf) return;
+let isSending = false;
+
+async function sendMess(): Promise<void> {
+  if (!fieldName || !fieldMail || !fieldText || !elInf || !btnMess) return;
+  if (isSending) return;
 
   const name = fieldName.value.trim();
   const mail = fieldMail.value.trim();
@@ -37,11 +40,27 @@ function sendMess(): void {
     return;
   }
 
-  // TODO: добавить fetch() для отправки данных на сервер
-  elInf.textContent = 'Сообщение отправлено';
-  fieldName.value = '';
-  fieldMail.value = '';
-  fieldText.value = '';
+  isSending = true;
+  btnMess.classList.add('disabled');
+  elInf.textContent = '';
+
+  try {
+    const response = await fetch('/components/contact.php', {
+      method: 'POST',
+      body: `name=${encodeURIComponent(name)}&mail=${encodeURIComponent(mail)}&text=${encodeURIComponent(text)}`,
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8' },
+    });
+    const answer = await response.text();
+    elInf.textContent = answer.trim();
+    fieldName.value = '';
+    fieldMail.value = '';
+    fieldText.value = '';
+  } catch {
+    elInf.textContent = 'Ошибка отправки. Попробуйте позже.';
+  } finally {
+    isSending = false;
+    btnMess.classList.remove('disabled');
+  }
 }
 
-btnMess?.addEventListener('click', () => sendMess());
+btnMess?.addEventListener('click', () => { sendMess(); });

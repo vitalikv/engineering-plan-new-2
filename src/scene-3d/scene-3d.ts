@@ -12,8 +12,8 @@ function getSize(): { w: number; h: number } {
   return { w, h };
 }
 
-let w_w: number;
-let w_h: number;
+let containerW: number;
+let containerH: number;
 
 container.addEventListener('contextmenu', (e) => e.preventDefault());
 container.addEventListener('mousedown', onDocumentMouseDown, false);
@@ -23,7 +23,7 @@ container.addEventListener('touchstart', onDocumentMouseDown as EventListener, f
 container.addEventListener('touchmove', onDocumentMouseMove as EventListener, false);
 container.addEventListener('touchend', onDocumentMouseUp as EventListener, false);
 
-const d = 5;
+const shadowExtent = 5;
 
 const canvas = document.createElement('canvas');
 const context = canvas.getContext('webgl2', { antialias: true });
@@ -53,18 +53,18 @@ light_2.lookAt(0, 0, 0);
 light_2.castShadow = true;
 light_2.shadow.mapSize.width = 2048;
 light_2.shadow.mapSize.height = 2048;
-light_2.shadow.camera.left = -d;
-light_2.shadow.camera.right = d;
-light_2.shadow.camera.top = d;
-light_2.shadow.camera.bottom = -d;
+light_2.shadow.camera.left = -shadowExtent;
+light_2.shadow.camera.right = shadowExtent;
+light_2.shadow.camera.top = shadowExtent;
+light_2.shadow.camera.bottom = -shadowExtent;
 light_2.shadow.camera.near = 0;
 light_2.shadow.camera.far = 3500;
 scene.add(light_2);
 
 const { w: initW, h: initH } = getSize();
-w_w = initW;
-w_h = initH;
-const camera = new THREE.PerspectiveCamera(65, w_w / w_h || 4 / 3, 0.2, 1000);
+containerW = initW;
+containerH = initH;
+const camera = new THREE.PerspectiveCamera(65, containerW / containerH || 4 / 3, 0.2, 1000);
 (camera.rotation as THREE.Euler).order = 'YZX';
 camera.position.set(8, 6, 8);
 const centerCam = new THREE.Vector3(0, 2, -2);
@@ -72,8 +72,8 @@ camera.lookAt(centerCam);
 
 function resize(): void {
   const { w, h } = getSize();
-  w_w = w;
-  w_h = h;
+  containerW = w;
+  containerH = h;
   renderer.setSize(w, h);
   camera.aspect = w / h || 1;
   camera.updateProjectionMatrix();
@@ -155,15 +155,16 @@ function createPlaneMath(): Mesh {
 function rayIntersect(
   event: MouseEvent | TouchEvent,
   obj: THREE.Object3D,
-  t: 'one' | 'arr'
+  mode: 'single' | 'recursive'
 ): Intersection[] {
   const ev = 'clientX' in event ? event : (event as TouchEvent).changedTouches[0];
+  const rect = container!.getBoundingClientRect();
   const mouse = new THREE.Vector2(
-    (ev.clientX / w_w) * 2 - 1,
-    -(ev.clientY / w_h) * 2 + 1
+    ((ev.clientX - rect.left) / rect.width) * 2 - 1,
+    -((ev.clientY - rect.top) / rect.height) * 2 + 1
   );
   raycaster.setFromCamera(mouse, camera);
-  return t === 'one'
+  return mode === 'single'
     ? raycaster.intersectObject(obj)
     : raycaster.intersectObjects([obj], true);
 }
@@ -174,22 +175,22 @@ function onDocumentMouseDown(event: MouseEvent | TouchEvent): void {
   const clientY = ev.changedTouches ? ev.changedTouches[0].clientY : ev.clientY;
   const button = ev.changedTouches ? 0 : ev.button;
 
-  let vk_click = 'left';
-  if (button === 1 || button === 2) vk_click = 'right';
+  let mouseBtn = 'left';
+  if (button === 1 || button === 2) mouseBtn = 'right';
 
   onMouseDownPosition.x = clientX;
   onMouseDownPosition.y = clientY;
 
-  if (vk_click === 'left') {
+  if (mouseBtn === 'left') {
     const dir = new THREE.Vector3()
       .subVectors(centerCam, camera.position)
       .normalize();
-    let dergree =
+    let degree =
       THREE.MathUtils.radToDeg(
         dir.angleTo(new THREE.Vector3(dir.x, 0, dir.z))
       ) * 2;
-    if (dir.y > 0) dergree *= -1;
-    onMouseDownPhi = dergree;
+    if (dir.y > 0) degree *= -1;
+    onMouseDownPhi = degree;
 
     dir.y = 0;
     dir.normalize();
@@ -197,13 +198,13 @@ function onDocumentMouseDown(event: MouseEvent | TouchEvent): void {
       THREE.MathUtils.radToDeg(Math.atan2(dir.x, dir.z) - Math.PI) * 2;
 
     isMouseDown2 = true;
-  } else if (vk_click === 'right') {
+  } else if (mouseBtn === 'right') {
     isMouseDown3 = true;
     planeMath.position.copy(centerCam);
     planeMath.rotation.copy(camera.rotation);
     planeMath.updateMatrixWorld();
 
-    const intersects = rayIntersect(event, planeMath, 'one');
+    const intersects = rayIntersect(event, planeMath, 'single');
     if (intersects.length > 0) {
       clickPos = intersects[0].point.clone();
     }
@@ -229,18 +230,18 @@ function cameraMove3D(event: MouseEvent | TouchEvent): void {
   const clientY = ev.changedTouches ? ev.changedTouches[0].clientY : ev.clientY;
 
   if (isMouseDown2) {
-    const radious = centerCam.distanceTo(camera.position);
+    const distance = centerCam.distanceTo(camera.position);
     theta = -(clientX - onMouseDownPosition.x) * 0.5 + onMouseDownTheta;
     let phi = (clientY - onMouseDownPosition.y) * 0.5 + onMouseDownPhi;
     phi = Math.min(180, Math.max(-80, phi));
 
     camera.position.x =
-      radious *
+      distance *
       Math.sin((theta * Math.PI) / 360) *
       Math.cos((phi * Math.PI) / 360);
-    camera.position.y = radious * Math.sin((phi * Math.PI) / 360);
+    camera.position.y = distance * Math.sin((phi * Math.PI) / 360);
     camera.position.z =
-      radious *
+      distance *
       Math.cos((theta * Math.PI) / 360) *
       Math.cos((phi * Math.PI) / 360);
 
@@ -248,7 +249,7 @@ function cameraMove3D(event: MouseEvent | TouchEvent): void {
     camera.lookAt(centerCam);
   }
   if (isMouseDown3 && clickPos) {
-    const intersects = rayIntersect(event, planeMath, 'one');
+    const intersects = rayIntersect(event, planeMath, 'single');
     if (intersects.length > 0) {
       const offset = new THREE.Vector3().subVectors(
         clickPos,
